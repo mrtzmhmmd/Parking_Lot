@@ -8,6 +8,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "ticket")
@@ -32,6 +34,13 @@ public class Ticket {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "vehicle_id")
     private Vehicle vehicle;
+
+    @ManyToMany
+    @JoinTable(
+            name = "ticket_slot",
+            joinColumns = {@JoinColumn(name = "ticket_id")},
+            inverseJoinColumns = {@JoinColumn(name = "slot_id")})
+    private Set<Slot> slots = new HashSet<>();
 
     @NotNull
     private LocalDateTime startTime;
