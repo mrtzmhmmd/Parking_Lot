@@ -23,9 +23,11 @@ public class VehicleCatalog {
 
     @OneToMany(mappedBy = "vehicleCatalog", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ticket> vehicleCatalog = new ArrayList<>();
+
     @NotNull
     @Column(name = "name")
     private String name;
+
     @NotNull
     @Column(name = "size")
     private Integer spotsNeeded;
