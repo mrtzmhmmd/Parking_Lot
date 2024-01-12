@@ -1,6 +1,7 @@
-package com.lavant.parking_lot.model.entity;
+package com.lavant.parking_lot.domain.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,11 +25,11 @@ public class VehicleCatalog {
     @OneToMany(mappedBy = "vehicleCatalog", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ticket> vehicleCatalog = new ArrayList<>();
 
-    @NotNull
+    @NotEmpty
     @Column(name = "name")
     private String name;
 
     @NotNull
     @Column(name = "size")
-    private Integer spotsNeeded;
+    private Integer size;
 }

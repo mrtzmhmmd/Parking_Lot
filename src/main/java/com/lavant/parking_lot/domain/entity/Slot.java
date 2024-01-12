@@ -1,6 +1,6 @@
-package com.lavant.parking_lot.model.entity;
+package com.lavant.parking_lot.domain.entity;
 
-import com.lavant.parking_lot.model.enums.SpotStatus;
+import com.lavant.parking_lot.domain.enums.SpotStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

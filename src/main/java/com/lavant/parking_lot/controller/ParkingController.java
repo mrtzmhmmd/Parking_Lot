@@ -1,6 +1,6 @@
 package com.lavant.parking_lot.controller;
 
-import com.lavant.parking_lot.controller.request.ParkingDTO;
+import com.lavant.parking_lot.domain.dto.ParkingDTO;
 import com.lavant.parking_lot.service.ParkingService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +25,8 @@ public class ParkingController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<Boolean> save(@RequestBody @Valid ParkingDTO request) {
-        boolean response = parkingService.save(request);
-        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    public ResponseEntity<Void> save(@RequestBody @Valid ParkingDTO request) {
+        parkingService.save(request);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }

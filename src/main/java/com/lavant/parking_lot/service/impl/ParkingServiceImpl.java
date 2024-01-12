@@ -1,7 +1,7 @@
 package com.lavant.parking_lot.service.impl;
 
-import com.lavant.parking_lot.controller.request.ParkingDTO;
-import com.lavant.parking_lot.model.entity.Parking;
+import com.lavant.parking_lot.domain.dto.ParkingDTO;
+import com.lavant.parking_lot.domain.entity.Parking;
 import com.lavant.parking_lot.repositories.ParkingRepository;
 import com.lavant.parking_lot.service.ParkingService;
 import jakarta.transaction.Transactional;
@@ -19,15 +19,15 @@ public class ParkingServiceImpl implements ParkingService {
 
     @Transactional
     @Override
-    public boolean save(ParkingDTO request) {
-        repository.save(createParking(request));
-        return true;
+    public void save(ParkingDTO parkingDTO) {
+        repository.save(createParking(parkingDTO));
     }
 
-    private Parking createParking(ParkingDTO request) {
+    private Parking createParking(ParkingDTO parkingDTO) {
         return Parking.builder().
-                name(null).
-                slotsNumber(request.getSlotsNumber()).
+                name(parkingDTO.getName()).
+                address(parkingDTO.getAddress()).
+                slotsNumber(parkingDTO.getSlotsNumber()).
                 build();
     }
 }

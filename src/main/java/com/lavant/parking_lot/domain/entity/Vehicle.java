@@ -1,4 +1,4 @@
-package com.lavant.parking_lot.model.entity;
+package com.lavant.parking_lot.domain.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;

@@ -1,4 +1,4 @@
-package com.lavant.parking_lot.controller.request;
+package com.lavant.parking_lot.domain.dto;
 
 import lombok.Builder;
 import lombok.Data;
@@ -8,4 +8,5 @@ import lombok.Data;
 public class ParkingDTO {
     private String name;
     private int slotsNumber;
+    private String address;
 }
